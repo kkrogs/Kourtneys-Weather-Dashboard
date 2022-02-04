@@ -34,14 +34,14 @@
                   
                 </div>
                
-                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                <input type="text" id="inputId" class="form-control" aria-describedby="inputGroup-sizing-sm">
             
             
                 <button type="button" class="Search btn btn-primary btn-lg btn-block">Search</button>
                 
-                &nbsp;&nbsp;&nbsp;
+                <!-- &nbsp;&nbsp;&nbsp; -->
 
-                <button type="button" class="austin btn btn-primary btn-lg btn-block">Austin</button>
+                <!-- <button type="button" class="austin btn btn-primary btn-lg btn-block">Austin</button>
                 &nbsp;&nbsp;&nbsp;
                 <button type="button" class="chicago btn btn-primary btn-lg btn-block">Chicago</button>
                 &nbsp;&nbsp;&nbsp;
@@ -55,7 +55,7 @@
                 &nbsp;&nbsp;&nbsp;
                 <button type="button" class="denver btn btn-primary btn-lg btn-block">Denver</button>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="atlanta btn btn-primary btn-lg btn-block">Atlanta</button>
+                <button type="button" class="atlanta btn btn-primary btn-lg btn-block">Atlanta</button> -->
             </div>
            
            
@@ -72,10 +72,10 @@
             </div>
           </div>
         </div>
-          <div class="containerTwo col"> <h1>City&Date</h1>
+          <div class="containerTwo col"> <h1 class = h1Txt> </h1>
             <ul>
                 <br>
-                <li>Temp:</li>
+                <li class="temp"></li>
                 <br>
                 <li>Wind:</li>
                 <br>
@@ -95,8 +95,30 @@
             <div class="row">
                 <div class="col">
                     <div class="card p-3">
-                        <blockquote class="blockquote mb-0 card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <blockquote class="Forecast1 blockquote mb-0 card-body">
+                          <!-- dynamically add the src -->
+                          <h3 class="Date">date</h3> <h4><img src=""> </h4>
+                          <ul>
+                            <li class="tempUL1">
+
+                            </li>
+
+                            <li class="windUL1">
+
+
+                            </li class="humidityUL1">
+
+                            <li>
+
+                              
+                            </li>
+
+
+
+
+                          </ul>
+
+                    
                            
                         </div>
 
@@ -173,7 +195,8 @@
 
 
       
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <script src="script.js"></script>
 </body>

@@ -1,25 +1,81 @@
-var ApiKey: "3cb947b3b8681f172b7e94554dd32b3a";
-var city;
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+var state = "";
+
+
 
 
 var searchBtn = document.querySelector(".Search");
+var h1Text = document.querySelector(".h1Txt");
+
+
+var formSubmitHandler = function (event) {
+event.preventdefault();
+
+var cityName = h1Text.value.trim();
+
+if(cityName) {
+getCityApi(cityName);
+
+temp.textContent = '';
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//Displays today's date
+var today = moment();
+$(".h1Txt").text(today.format("L"));
 
 
 searchBtn.addEventListener("click",function() {
-// alert("test");
+  //We want to fetch the city name and tie it to the weather.
 
-fetch('https://api.github.com/repos/nodejs/node/issues?per_page=5', {
-  // The browser fetches the resource from the remote server without first looking in the cache.
-  // The browser will then update the cache with the downloaded resource.
-  cache: 'reload',
-})
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
+var cityName = document.getElementById("inputId").value;
+var ApiKey = "3cb947b3b8681f172b7e94554dd32b3a";
+var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+",state,country&limit=5&appid="+ApiKey;
+
+
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${ApiKey}`)
+    .then(response => response.json())
+    .then (data => {
+console.log(data);
+//get the data object and display it on the screen
+var temperature =  data.main.temp;
+document.querySelector(".temp").innerHTML="Temperature: " + Math.round(((temperature-273.15)*1.8)+32) + " Degrees Fahrenheit";
+//We need to get the lat and long from the return of data. With lat and long, we need to make another API column
+//Create variables for lat and long
+
+var Lat = data.coord.lat;
+var Long = data.coord.lon;
+
+
+
+fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Lat}&lon=${Long}&exclude=current,minutely,hourly,alerts&appid=${ApiKey}`)
+.then(response => response.json())
+    .then (data => {
+console.log(data);
+
+
+// document.querySelector(".tempUL1").innerHTML="Temperature:" + 
+//data.main
+
+    });
+});
+    
+
 
 
 
