@@ -80,19 +80,8 @@ fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Lat}&lon=${Long}&ex
     .then (data => {
 console.log(data);
 
-var latTwo = data.lat;
-var longTwo = data.lon;
-
-// if lat and long from above api call == lat and long from below api call, display UV index
-if (Lat && Long === latTwo && longTwo) {
-  alert("matching");
-}
-
-//creating UV index
-
-
-// var uvIndx = data.current.uvi;
-// document.querySelector(".uvIndx").innerHTML="Current UV Index: " + uvIndx;
+var uvIndx = data.daily[0].uvi;
+document.querySelector(".uvIndx").innerHTML="Current UV Index: " + uvIndx;
 
 
 // document.querySelector(".tempUL1").innerHTML="Temperature:" + 
