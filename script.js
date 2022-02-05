@@ -55,6 +55,18 @@ console.log(data);
 //get the data object and display it on the screen
 var temperature =  data.main.temp;
 document.querySelector(".temp").innerHTML="Temperature: " + Math.round(((temperature-273.15)*1.8)+32) + " Degrees Fahrenheit";
+
+//creating wind speed
+var windSpd = data.wind.speed;
+document.querySelector(".wind").innerHTML="Wind: " + windSpd +" per hour";
+
+//creating humidity index
+var humidityIndx = data.main.humidity;
+document.querySelector(".humidity").innerHTML="Humidity: " + humidityIndx + " %";
+
+
+
+
 //We need to get the lat and long from the return of data. With lat and long, we need to make another API column
 //Create variables for lat and long
 
@@ -67,6 +79,10 @@ fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Lat}&lon=${Long}&ex
 .then(response => response.json())
     .then (data => {
 console.log(data);
+
+//creating UV index
+var uvIndx = data.current.uvi;
+document.querySelector(".uvIndx").innerHTML="Current UV Index: " + uvIndx;
 
 
 // document.querySelector(".tempUL1").innerHTML="Temperature:" + 
