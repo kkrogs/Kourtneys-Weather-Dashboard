@@ -83,9 +83,26 @@ console.log(data);
 var uvIndx = data.daily[0].uvi;
 document.querySelector(".uvIndx").innerHTML="Current UV Index: " + uvIndx;
 
+var date1 = data.daily[0].dt;
+document.querySelector(".DateOne").innerHTML= moment(date1 * 1000).format("L");
 
-// document.querySelector(".tempUL1").innerHTML="Temperature:" + 
-//data.main
+// var iconcode = weather[0].icon;
+// var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+// $('#wicon').attr('src', iconurl);
+
+// var iconOnee = data.daily[0].weather[0].icon;
+// document.querySelector(".icon").innerHTML= iconOnee;
+
+var tempA = data.daily[0].temp.day;
+document.querySelector(".tempA").innerHTML= "Temp:" + Math.round(((tempA-273.15)*1.8)+32) + " F";
+
+var windA = data.daily[0].wind_speed;
+document.querySelector(".windA").innerHTML= windA + "MPH";
+
+var humid = data.daily[0].humidity;
+document.querySelector(".humidA").innerHTML= humid + " %";
+
+
 
     });
 });
