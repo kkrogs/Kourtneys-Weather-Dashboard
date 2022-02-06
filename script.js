@@ -56,8 +56,16 @@ var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+",stat
 console.log(data);
 
 
+
+
+//dealing with the bottom later, for now commenting it out
 var dateMain = data.dt;
-document.querySelector(".h1Txt").innerHTML= moment(dateMain * 1000).format("L");
+var dateMainCity = moment(dateMain * 1000).format("L");
+
+  
+document.querySelector(".h1Txt").innerHTML = cityName + " " + dateMainCity;
+
+
 
 //get the data object and display it on the screen
 var temperature =  data.main.temp;
