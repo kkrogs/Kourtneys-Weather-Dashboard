@@ -65,6 +65,22 @@ var dateMainCity = moment(dateMain * 1000).format("L");
   
 document.querySelector(".h1Txt").innerHTML = cityName + " " + dateMainCity;
 
+// document.querySelector(".buttonA").innerHTML = cityName;
+
+//putting cityName into local storage
+
+localStorage.setItem('cityName', JSON.stringify(cityName));
+//retrieve the item from localStorage
+var retrievedCity = localStorage.getItem('cityName');
+
+//at this point just console logging it and will later try to add it to buttonA
+console.log('retrievedCity:', JSON.parse(retrievedCity));
+
+//adding retrievedCity to the buttonA
+document.querySelector(".buttonA").innerHTML = retrievedCity.trim();
+//not sure how to get rid of quotes from the button here******
+
+
 
 
 //get the data object and display it on the screen

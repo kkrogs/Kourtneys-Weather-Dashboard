@@ -17,7 +17,7 @@
   right: 82%;
   }
   
-  .chicago, .austin, .newYork, .orlando, .sanFran, .seattle, .denver, .atlanta {
+  .buttonA, .buttonB, .buttonC, .buttonD, .buttonE {
   background-color: rgb(180, 177, 174);
   color: black;
   border-color:rgb(180, 177, 174);
