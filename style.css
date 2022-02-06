@@ -58,7 +58,8 @@
   }
   
   li {
-      font-size: 27px;
+      font-size: 20px;
+      
   
   }
   
@@ -72,12 +73,18 @@
   
   }
  .card ul li{
-margin-left: -26%;
+margin-left: -70%;
   font-size: 18px;
  }
 
  .card header{
 font-size: 23px;
 margin-top: -26%;
+
+ }
+
+ .h1Txt {
+   font-size: 35px;
+
 
  }

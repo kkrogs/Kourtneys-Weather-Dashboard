@@ -36,8 +36,10 @@ temp.textContent = '';
 
 
 //Displays today's date
-var today = moment();
-$(".h1Txt").text(today.format("L"));
+// var today = moment();
+// $(".h1Txt").text(today.format("L"));
+
+
 
 
 searchBtn.addEventListener("click",function() {
@@ -52,6 +54,11 @@ var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+",stat
     .then(response => response.json())
     .then (data => {
 console.log(data);
+
+
+var dateMain = data.dt;
+document.querySelector(".h1Txt").innerHTML= moment(dateMain * 1000).format("L");
+
 //get the data object and display it on the screen
 var temperature =  data.main.temp;
 document.querySelector(".temp").innerHTML="Temperature: " + Math.round(((temperature-273.15)*1.8)+32) + " Degrees Fahrenheit";
@@ -92,6 +99,10 @@ document.querySelector(".DateOne").innerHTML= moment(date1 * 1000).format("L");
 
 // var iconOnee = data.daily[0].weather[0].icon;
 // document.querySelector(".icon").innerHTML= iconOnee;
+
+
+
+
 
 var tempA = data.daily[1].temp.day;
 document.querySelector(".tempA").innerHTML= "Temp: " + Math.round(((tempA-273.15)*1.8)+32) + " F";
