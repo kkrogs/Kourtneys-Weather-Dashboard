@@ -83,7 +83,7 @@ console.log(data);
 var uvIndx = data.daily[0].uvi;
 document.querySelector(".uvIndx").innerHTML="Current UV Index: " + uvIndx;
 
-var date1 = data.daily[0].dt;
+var date1 = data.daily[1].dt;
 document.querySelector(".DateOne").innerHTML= moment(date1 * 1000).format("L");
 
 // var iconcode = weather[0].icon;
@@ -93,15 +93,70 @@ document.querySelector(".DateOne").innerHTML= moment(date1 * 1000).format("L");
 // var iconOnee = data.daily[0].weather[0].icon;
 // document.querySelector(".icon").innerHTML= iconOnee;
 
-var tempA = data.daily[0].temp.day;
-document.querySelector(".tempA").innerHTML= "Temp:" + Math.round(((tempA-273.15)*1.8)+32) + " F";
+var tempA = data.daily[1].temp.day;
+document.querySelector(".tempA").innerHTML= "Temp: " + Math.round(((tempA-273.15)*1.8)+32) + " F";
 
-var windA = data.daily[0].wind_speed;
-document.querySelector(".windA").innerHTML= windA + "MPH";
+var windA = data.daily[1].wind_speed;
+document.querySelector(".windA").innerHTML= "Wind: " + windA + "MPH";
 
-var humid = data.daily[0].humidity;
-document.querySelector(".humidA").innerHTML= humid + " %";
+var humid = data.daily[1].humidity;
+document.querySelector(".humidA").innerHTML= "Humidity: " + humid + " %";
 
+
+//2nd forecast panel
+var dateB = data.daily[2].dt;
+document.querySelector(".dateB").innerHTML= moment(dateB * 1000).format("L");
+
+var tempB = data.daily[2].temp.day;
+document.querySelector(".tempB").innerHTML= "Temp: " + Math.round(((tempB-273.15)*1.8)+32) + " F";
+
+var windB = data.daily[2].wind_speed;
+document.querySelector(".windB").innerHTML= "Wind: " + windB + "MPH";
+
+var humidB = data.daily[2].humidity;
+document.querySelector(".humidB").innerHTML= "Humidity: " + humidB + " %";
+
+//3rd forecast panel
+
+var dateC = data.daily[3].dt;
+document.querySelector(".dateC").innerHTML= moment(dateC * 1000).format("L");
+
+var tempC = data.daily[3].temp.day;
+document.querySelector(".tempC").innerHTML= "Temp: " + Math.round(((tempC-273.15)*1.8)+32) + " F";
+
+var windC = data.daily[3].wind_speed;
+document.querySelector(".windC").innerHTML= "Wind: " + windC + "MPH";
+
+var humidC = data.daily[3].humidity;
+document.querySelector(".humidC").innerHTML= "Humidity: " + humidC + " %";
+
+//4the forecast panel
+
+var dateD = data.daily[4].dt;
+document.querySelector(".dateD").innerHTML= moment(dateD * 1000).format("L");
+
+var tempD = data.daily[4].temp.day;
+document.querySelector(".tempD").innerHTML= "Temp: " + Math.round(((tempD-273.15)*1.8)+32) + " F";
+
+var windD = data.daily[4].wind_speed;
+document.querySelector(".windD").innerHTML= "Wind: " + windD + "MPH";
+
+var humidD = data.daily[4].humidity;
+document.querySelector(".humidD").innerHTML= "Humidity: " + humidD + " %";
+
+//5th forecast panel
+
+var dateE = data.daily[5].dt;
+document.querySelector(".dateE").innerHTML= moment(dateE * 1000).format("L");
+
+var tempE = data.daily[5].temp.day;
+document.querySelector(".tempE").innerHTML= "Temp: " + Math.round(((tempE-273.15)*1.8)+32) + " F";
+
+var windE = data.daily[5].wind_speed;
+document.querySelector(".windE").innerHTML= "Wind: " + windE + "MPH";
+
+var humidE = data.daily[5].humidity;
+document.querySelector(".humidE").innerHTML= "Humidity: " + humidE + " %";
 
 
     });
