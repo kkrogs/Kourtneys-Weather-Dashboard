@@ -1,37 +1,26 @@
 var state = "";
 
-
-
-
 var searchBtn = document.querySelector(".Search");
 var h1Text = document.querySelector(".h1Txt");
+var cities = [5];
+var cityNameIdx = 0;
 
-
+//reads the cookie to reload the cityName array
+init();
 var formSubmitHandler = function (event) {
 event.preventdefault();
 
-var cityName = h1Text.value.trim();
+// var cityName = h1Text.value.trim();
 
-if(cityName) {
-getCityApi(cityName);
+// if(cityName) {
+// getCityApi(cityName);
 
-temp.textContent = '';
-
-
-
-}
+// temp.textContent = '';
 
 
+// }
 
-}
-
-
-
-
-
-
-
-
+};
 
 
 
@@ -39,6 +28,68 @@ temp.textContent = '';
 // var today = moment();
 // $(".h1Txt").text(today.format("L"));
 
+//Making the names appear in the HTML
+function renderCityNames() {
+    // Clear todoList element and update todoCountSpan
+    // cityList.innerHTML = "";
+  
+    // Render a new li for each todo
+    // for (var i = 0; i < cities.length; i++) {
+    //   var city = cities[i];
+  
+      // // var li = document.createElement("li");
+      // // li.textContent = todo;
+      // // li.setAttribute("data-index", i);
+  
+      // var button = document.createElement("button");
+      // button.textContent = "Complete ✔️";
+  
+      // li.appendChild(button);
+      // todoList.appendChild(li);
+
+      if (cities[0].length > 0) {
+
+        
+
+      document.querySelector(".buttonA").innerHTML = cities[0].trim();
+      document.querySelector(".buttonB").innerHTML = cities[1].trim();
+      document.querySelector(".buttonC").innerHTML = cities[2].trim();
+      document.querySelector(".buttonD").innerHTML = cities[3].trim();
+      document.querySelector(".buttonE").innerHTML = cities[4].trim();
+      
+      
+
+    }
+    
+  };
+  
+  // cities[cityNameIdx++] = cityName;  
+
+  // if (cityNameIdx > 4) {
+  //   cityNameIdx = 0;
+    
+  // }
+  
+  // storedCities();
+
+//retrieving the array from localStorage
+  function init() {
+    // Get stored cities from localStorage
+    var storedCities = JSON.parse(localStorage.getItem("items"));
+  
+    // If cities were retrieved from localStorage, update the cities array to it
+    if (storedCities !== null) {
+      cities = storedCities;
+    }
+  
+    // This is a helper function that will render cities to the DOM
+    renderCityNames();
+  }
+
+  function storedCities() {
+    // Stringify and set key in localStorage to cities array
+    localStorage.setItem("items", JSON.stringify(cities));
+  }
 
 
 
@@ -47,9 +98,9 @@ searchBtn.addEventListener("click",function() {
 
 var cityName = document.getElementById("inputId").value;
 var ApiKey = "3cb947b3b8681f172b7e94554dd32b3a";
-var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+",state,country&limit=5&appid="+ApiKey;
+// var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+",state,country&limit=5&appid="+ApiKey;
 
-
+//fetching the weather API
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${ApiKey}`)
     .then(response => response.json())
     .then (data => {
@@ -57,27 +108,48 @@ console.log(data);
 
 
 
-
-//dealing with the bottom later, for now commenting it out
+//Querying web data to grab time in UTC and then converting it to mm/dd/yyyy format
 var dateMain = data.dt;
 var dateMainCity = moment(dateMain * 1000).format("L");
 
-  
+//querying the text that is in the search field
 document.querySelector(".h1Txt").innerHTML = cityName + " " + dateMainCity;
+
+//Read cityName to submit it with the form
+cities[cityNameIdx++] = cityName;  
+
+//if the amount of cities searched is greater than 4, add it to the first button city[0]
+if (cityNameIdx > 4) {
+  cityNameIdx = 0;
+  
+}
+
+//stores to localStorage
+storedCities();
+
 
 // document.querySelector(".buttonA").innerHTML = cityName;
 
 //putting cityName into local storage
 
-localStorage.setItem('cityName', JSON.stringify(cityName));
-//retrieve the item from localStorage
-var retrievedCity = localStorage.getItem('cityName');
+ 
 
-//at this point just console logging it and will later try to add it to buttonA
-console.log('retrievedCity:', JSON.parse(retrievedCity));
+// localStorage.setItem("cityName", JSON.stringify(cities));
+
+
+
+
+// renderCityNames();
+
+// localStorage.setItem('cityName', JSON.stringify(cityName));
+// //retrieve the item from localStorage
+// var retrievedCity = localStorage.getItem('cityName');
+
+// //at this point just console logging it and will later try to add it to buttonA
+// console.log('retrievedCity:', JSON.parse(retrievedCity));
 
 //adding retrievedCity to the buttonA
-document.querySelector(".buttonA").innerHTML = retrievedCity.trim();
+// document.querySelector(".buttonA").innerHTML = retrievedCity.trim();
 //not sure how to get rid of quotes from the button here******
 
 
@@ -202,4 +274,3 @@ document.querySelector(".humidE").innerHTML= "Humidity: " + humidE + " %";
 
 
 });
-
