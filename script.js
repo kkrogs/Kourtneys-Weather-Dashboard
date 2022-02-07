@@ -6,21 +6,22 @@ var cities = [5];
 var cityNameIdx = 0;
 
 //reads the cookie to reload the cityName array
-init();
-var formSubmitHandler = function (event) {
-event.preventdefault();
 
-// var cityName = h1Text.value.trim();
+// var formSubmitHandler = function (event) {
+// event.preventdefault();
 
-// if(cityName) {
-// getCityApi(cityName);
+// console.log("formSubmitHandler");
+// // var cityName = h1Text.value.trim();
 
-// temp.textContent = '';
+// // if(cityName) {
+// // getCityApi(cityName);
+
+// // temp.textContent = '';
 
 
-// }
+// // }
 
-};
+// };
 
 
 
@@ -47,15 +48,15 @@ function renderCityNames() {
       // li.appendChild(button);
       // todoList.appendChild(li);
 
-      if (cities[0].length > 0) {
+      if (cities.length > 0) {
 
         
 
-      document.querySelector(".buttonA").innerHTML = cities[0].trim();
-      document.querySelector(".buttonB").innerHTML = cities[1].trim();
-      document.querySelector(".buttonC").innerHTML = cities[2].trim();
-      document.querySelector(".buttonD").innerHTML = cities[3].trim();
-      document.querySelector(".buttonE").innerHTML = cities[4].trim();
+      document.querySelector(".buttonA").innerHTML = cities[0];
+      document.querySelector(".buttonB").innerHTML = cities[1];
+      document.querySelector(".buttonC").innerHTML = cities[2];
+      document.querySelector(".buttonD").innerHTML = cities[3];
+      document.querySelector(".buttonE").innerHTML = cities[4];
       
       
 
@@ -75,20 +76,22 @@ function renderCityNames() {
 //retrieving the array from localStorage
   function init() {
     // Get stored cities from localStorage
-    var storedCities = JSON.parse(localStorage.getItem("items"));
+    var storedCities = JSON.parse(localStorage.getItem("cities"));
   
     // If cities were retrieved from localStorage, update the cities array to it
     if (storedCities !== null) {
       cities = storedCities;
+      console.log(cities);
     }
-  
+    console.log("init");
     // This is a helper function that will render cities to the DOM
     renderCityNames();
+    
   }
 
   function storedCities() {
     // Stringify and set key in localStorage to cities array
-    localStorage.setItem("items", JSON.stringify(cities));
+    localStorage.setItem("cities", JSON.stringify(cities));
   }
 
 
@@ -98,6 +101,7 @@ searchBtn.addEventListener("click",function() {
 
 var cityName = document.getElementById("inputId").value;
 var ApiKey = "3cb947b3b8681f172b7e94554dd32b3a";
+console.log("addEventListener");
 // var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+",state,country&limit=5&appid="+ApiKey;
 
 //fetching the weather API
@@ -105,7 +109,7 @@ var ApiKey = "3cb947b3b8681f172b7e94554dd32b3a";
     .then(response => response.json())
     .then (data => {
 console.log(data);
-
+console.log("fetch");
 
 
 //Querying web data to grab time in UTC and then converting it to mm/dd/yyyy format
@@ -114,15 +118,19 @@ var dateMainCity = moment(dateMain * 1000).format("L");
 
 //querying the text that is in the search field
 document.querySelector(".h1Txt").innerHTML = cityName + " " + dateMainCity;
+cityNameIdx = cities.length;
+
+if (cityNameIdx >= 0 && cityNameIdx >= 5) {
+  cities.splice(0, 5);
+  cityNameIdx = 0;
+
+  
+}
 
 //Read cityName to submit it with the form
 cities[cityNameIdx++] = cityName;  
 
-//if the amount of cities searched is greater than 4, add it to the first button city[0]
-if (cityNameIdx > 4) {
-  cityNameIdx = 0;
-  
-}
+console.log(cities);
 
 //stores to localStorage
 storedCities();
@@ -267,6 +275,8 @@ document.querySelector(".humidE").innerHTML= "Humidity: " + humidE + " %";
 
 
     });
+
+
 });
     
 
@@ -274,3 +284,5 @@ document.querySelector(".humidE").innerHTML= "Humidity: " + humidE + " %";
 
 
 });
+
+init();
