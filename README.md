@@ -31,6 +31,7 @@ and then started searching for something different, in this case, Washington. Th
 
 ![image](https://user-images.githubusercontent.com/95041311/152922953-35734be4-baf7-4b11-81f8-422ca80a9f9a.png)
 
+For best results, please clear cache and cookies before going into the website.
 
 Here is a link to the deployed website: https://kkrogs.github.io/Kourtneys-Weather-Dashboard/
 
