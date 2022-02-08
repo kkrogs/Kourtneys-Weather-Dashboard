@@ -1,5 +1,4 @@
 .header1 {
-  /* background-color: rgb(68, 68, 228); */
   background-image: linear-gradient(90deg, rgba(97,154,217,1) 0%, rgba(79,130,200,1) 17%, rgba(2,21,96,1) 100%);
   text-align: center;
   color: white;
@@ -38,7 +37,6 @@
       position: absolute;
       height: 42%;
       width: 77%;
-      /* border: 1px solid rgb(221, 212, 212); */
       bottom: 8%;
     right:3%; 
     
@@ -89,4 +87,10 @@ margin-top: -26%;
 
  }
 
+ .Search {
+   margin: 6px 7px 20px 7px;
+
+
+ }
+ 
  

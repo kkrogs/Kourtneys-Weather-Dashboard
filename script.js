@@ -1,4 +1,4 @@
-var state = "";
+// var state = "";
 
 var searchBtn = document.querySelector(".Search");
 var h1Text = document.querySelector(".h1Txt");
@@ -8,7 +8,7 @@ var cityNameIdx = 0;
 
 
 
-//Making the names appear in the HTML
+//Making the city names appear in the HTML as well as making the hidden containers visible after the search button is clicked
 function renderCityNames() {
    
      let citLi = document.querySelector('#cityList');
@@ -21,6 +21,8 @@ function renderCityNames() {
         containerThree.hidden = false;
         btnA.hidden = false;
         containerTwo.hidden = false;
+        
+
 
         btnA.innerText = cities[0];
 
@@ -178,6 +180,7 @@ document.querySelector("#wiconE").setAttribute('src', icnURLE);
 //displays API Data for current UV Index
 var uvIndx = data.daily[0].uvi;
 document.querySelector(".uvIndx").innerHTML="Current UV Index: " + uvIndx;
+
 
 
 //displays API Data for first forecast panel
