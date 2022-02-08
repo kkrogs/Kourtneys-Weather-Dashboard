@@ -1,6 +1,6 @@
 # Kourtneys-Weather-Dashboard
 
-The title of this project is Kourtneys-Weather-Dashboard. The reason why this project is so important is because it will showcase my knowledge of Javascript to prospective employers.
+The title of this project is Kourtneys-Weather-Dashboard. The reason why this project is so important is because it will showcase my knowledge of Javascript and web APIs to prospective employers.
 
 ![image](https://user-images.githubusercontent.com/95041311/152923312-c17ac38a-3c94-4a13-975f-f1992468066a.png)
 
@@ -45,9 +45,7 @@ This was used to help aid in adding weather icons to my javascript from the open
 
 Thank you for reading and enjoy my Weather Dashboard!
 
+
 Kourtney Krogman
-
-
-
 
 
