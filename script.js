@@ -16,6 +16,11 @@ function renderCityNames() {
      //displays 0 in cities array to the first button
       if(cities[0]) {
         const btnA = document.querySelector(".buttonA");
+        var containerTwo = document.querySelector(".containerTwo");
+        var containerThree = document.querySelector(".containerThree");
+        containerThree.hidden = false;
+        btnA.hidden = false;
+        containerTwo.hidden = false;
 
         btnA.innerText = cities[0];
 
@@ -24,7 +29,7 @@ function renderCityNames() {
       //displays 1 in cities array to the first button
       if(cities[1]) {
         const btnB = document.querySelector(".buttonB");
-
+        btnB.hidden = false;
         btnB.innerText = cities[1];
 
       }
@@ -32,7 +37,7 @@ function renderCityNames() {
      //displays 2 in cities array to the first button
       if(cities[2]) {
         const btnC = document.querySelector(".buttonC");
-
+        btnC.hidden = false;
         btnC.innerText = cities[2];
 
       }
@@ -40,7 +45,7 @@ function renderCityNames() {
       //displays 3 in cities array to the first button
       if(cities[3]) {
         const btnD = document.querySelector(".buttonD");
-
+        btnD.hidden = false;
         btnD.innerText = cities[3];
 
       }
@@ -48,7 +53,7 @@ function renderCityNames() {
       //displays 4 in cities array to the first button
       if(cities[4]) {
         const btnE = document.querySelector(".buttonE");
-
+        btnE.hidden = false;
         btnE.innerText = cities[4];
 
       }
