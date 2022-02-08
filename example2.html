@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <!-- Linking Stylesheets -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -16,19 +16,21 @@
 
 </head>
 <body>
-
+<!-- Weather dashboard header -->
     <header class="header1">
         <h1 class="display-5">Weather Dashboard</h1>
         
       </header>
-
+<!-- Largest container -->
       <div class="containerAll d-flex">
           <div class ="containerOne">
         <div class="row">
+          <!-- Container with city search input -->
           <div class="col card text-left">
             <div class="card-body">
               <h5 class="card-title">Search for a city:</h5>
               <div class="input-group input-group-lg">
+
                  
                 <div class="input-group-prepend">
                   
@@ -36,35 +38,27 @@
                
                 <input type="text" id="inputId" class="form-control" aria-describedby="inputGroup-sizing-sm">
             
-            
+            <!-- Search button -->
                 <button type="button" class="Search btn btn-primary btn-lg btn-block">Search</button>
-                
-                <!-- &nbsp;&nbsp;&nbsp; -->
 
-                <!-- <button type="button" class="austin btn btn-primary btn-lg btn-block">Austin</button>
+                <!-- List of cities div -->
+              <div class="cityList">
+
+                <!-- 5 buttons to display search in cities -->
+                <button type="button" class="buttonA btn btn-primary btn-lg btn-block"></button>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="chicago btn btn-primary btn-lg btn-block">Chicago</button>
+                <button type="button" class="buttonB btn btn-primary btn-lg btn-block"></button>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="newYork btn btn-primary btn-lg btn-block">New York</button>
+                <button type="button" class="buttonC btn btn-primary btn-lg btn-block"></button>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="orlando btn btn-primary btn-lg btn-block">Orlando</button>
+                <button type="button" class="buttonD btn btn-primary btn-lg btn-block"></button>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="sanFran btn btn-primary btn-lg btn-block">San Francisco</button>
-                &nbsp;&nbsp;&nbsp;
-                <button type="button" class="seattle btn btn-primary btn-lg btn-block">Seattle</button>
-                &nbsp;&nbsp;&nbsp;
-                <button type="button" class="denver btn btn-primary btn-lg btn-block">Denver</button>
-                &nbsp;&nbsp;&nbsp;
-                <button type="button" class="atlanta btn btn-primary btn-lg btn-block">Atlanta</button> -->
+                <button type="button" class="buttonE btn btn-primary btn-lg btn-block"></button>
+              </div>
+               
             </div>
-           
-           
-            
-            
             
           </div>
-        
-        
         
       </div>
 
@@ -72,6 +66,7 @@
             </div>
           </div>
         </div>
+        <!-- Large container containing daily weather metrics in unordered list -->
           <div class="containerTwo col"> <h1 class = h1Txt> </h1>
             <ul>
                 <br>
@@ -88,50 +83,39 @@
         
         
         </div>
-    
 
+    
+        <!--Container that contains 5 day forecast  -->
         <div class="containerThree">
             <h2>5-Day Forecast:</h2>
             <div class="row">
+              <!-- First panel -->
                 <div class="col-2">
                     <div class="card p-3" style="width: 12rem;">
                         <blockquote class="Forecast1 blockquote mb-0 card-body">
                           <!-- dynamically add the src -->
-                          <h3 class="DateOne"></h3> 
+                          <header class="DateOne"></header> 
                           <!-- <div id="icon"><img id="wicon" src="" alt="Weather icon"></div> -->
                         
                           <h4 class="icon"></h4>
-              
                           <ul>
                             <li class="tempA">
-
                             </li>
-
                             <li class="windA">
                             </li>
-
-
                             <li class="humidA">
-
-                              
                             </li>
-                          
-
-
-
 
                           </ul>
 
-                    
-                           
                         </div>
 
-
+                  <!--2nd panel in 5 day forecast-->
                 </div>
                 <div class="col-2">
                     <div class="card p-3" style="width: 12rem;">
                         <blockquote class="blockquote mb-0 card-body">
-                          <h1 class="dateB"></h1>
+                          <header class="dateB"></header>
                           <h2>Emoji</h2>
                           <ul>
                             <li class="tempB"> </li> 
@@ -141,11 +125,12 @@
                       </div>
 
 
+                      <!--3rd panel in 5 day forecast-->
                 </div>
                 <div class="col-2">
                     <div class="card p-3" style="width: 12rem;">
                         <blockquote class="blockquote mb-0 card-body">
-                            <h1 class="dateC"></h1>
+                            <header class="dateC"></header>
                             <h2>Emoji</h2>
                             <ul>
                               <li class="tempC"> </li> 
@@ -155,12 +140,12 @@
                         </div>
 
 
-
+                        <!--4th panel in 5 day forecast-->
                 </div>
                 <div class="col-2">
                     <div class="card p-3" style="width: 12rem;">
                         <blockquote class="blockquote mb-0 card-body">
-                            <h1 class="dateD"></h1>
+                            <header class="dateD"></header>
                             <h2>Emoji</h2>
                             <ul>
                               <li class="tempD"> </li> 
@@ -171,12 +156,12 @@
 
 
 
-
+                        <!--5th panel in 5 day forecast-->
                 </div>
                 <div class="col-2">
                     <div class="card p-3" style="width: 12rem;">
                         <blockquote class="blockquote mb-0 card-body">
-                            <h1 class="dateE"></h1>
+                            <header class="dateE"></header>
                             <h2>Emoji</h2>
                             <ul>
                               <li class="tempE"> </li> 
@@ -195,27 +180,12 @@
               </div>
             </div>
 
-
-
-
-
-        
-        
-            
-            
+  
                 </div>
               </div>
           
-
-
-
-
           </div>
 
-
-        <!-- <div class="w-100">
-             
-     <div class="col">Column</div> -->
         </div>
       </div>
 
@@ -224,6 +194,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-    <script src="script.js"></script>
+    <script src="example.js"></script>
 </body>
 </html>

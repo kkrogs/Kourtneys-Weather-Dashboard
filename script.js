@@ -48,21 +48,87 @@ function renderCityNames() {
       // li.appendChild(button);
       // todoList.appendChild(li);
 
-      if (cities.length > 0) {
+      let citLi = document.querySelector('#cityList');
+      if(cities[0].length > 0) {
+        const btnA = document.querySelector(".buttonA");
+
+        btnA.innerText = cities[0];
+
+      }
+
+      if(cities[1].length > 0) {
+        const btnB = document.querySelector(".buttonB");
+
+        btnB.innerText = cities[1];
+
+      }
+
+
+   
+
+
+      //  var btnA = document.createElement('button');
+      //  btnA.setAttribute('class', 'buttonA btn btn-primary btn-lg btn-block');
+      //  btnA.textContent = cities[0];
+      //  citLi.appendChild(btnA);
+
+      //  var btnB = document.createElement('button');
+      //  btnB.setAttribute('class', 'buttonA btn btn-primary btn-lg btn-block');
+      //  btnB.textContent = cities[1];
+      //  citLi.appendChild(btnB);
+
+      //  var btnC = document.createElement('button');
+      //  btnC.setAttribute('class', 'buttonA btn btn-primary btn-lg btn-block');
+      //  btnC.textContent = cities[2];
+      //  citLi.appendChild(btnC);
+
+
+
+        
+        // let btnA = document.createElement('<button type="button" class="buttonA btn btn-primary btn-lg btn-block">' + cities[0] + '</button>');
+       
+        // citLi(document.body.appendChild(btnA));
+        
+        // let btnB = document.createElement("<button type=""button"" class=""buttonB btn btn-primary btn-lg btn-block"">" + cities[1] + "</button>");
+        
+        // citLi(document.body.appendChild(btnB));
+
+        // let btnC = document.createElement("<button type=""button"" class=""buttonC btn btn-primary btn-lg btn-block"">" + cities[2] + "</button>");
+      
+        // citLi(document.body.appendChild(btnC));
+
+        // let btnD = document.createElement("<button type=""button"" class=""buttonD btn btn-primary btn-lg btn-block"">" + cities[3] + "</button>"));
+        // // btnD.innerHTML = cities[3];
+        // citLi(document.body.appendChild(btnD));
+
+        // let btnE = document.createElement("<button type=""button"" class=""buttonE btn btn-primary btn-lg btn-block"">" + cities[4] + "</button>");
+        // // btnE.innerHTML = cities[4];
+        // citLi(document.body.appendChild(btnE));
+
+
+
+
+
+
+
+
+      // } (cities.length > 0) {
 
         
 
-      document.querySelector(".buttonA").innerHTML = cities[0];
-      document.querySelector(".buttonB").innerHTML = cities[1];
-      document.querySelector(".buttonC").innerHTML = cities[2];
-      document.querySelector(".buttonD").innerHTML = cities[3];
-      document.querySelector(".buttonE").innerHTML = cities[4];
+
+
+      // document.querySelector(".buttonA").innerHTML = cities[0];
+      // document.querySelector(".buttonB").innerHTML = cities[1];
+      // document.querySelector(".buttonC").innerHTML = cities[2];
+      // document.querySelector(".buttonD").innerHTML = cities[3];
+      // document.querySelector(".buttonE").innerHTML = cities[4];
       
       
 
-    }
+    };
     
-  };
+
   
   // cities[cityNameIdx++] = cityName;  
 
@@ -104,20 +170,6 @@ var ApiKey = "3cb947b3b8681f172b7e94554dd32b3a";
 console.log("addEventListener");
 // var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+",state,country&limit=5&appid="+ApiKey;
 
-//fetching the weather API
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${ApiKey}`)
-    .then(response => response.json())
-    .then (data => {
-console.log(data);
-console.log("fetch");
-
-
-//Querying web data to grab time in UTC and then converting it to mm/dd/yyyy format
-var dateMain = data.dt;
-var dateMainCity = moment(dateMain * 1000).format("L");
-
-//querying the text that is in the search field
-document.querySelector(".h1Txt").innerHTML = cityName + " " + dateMainCity;
 cityNameIdx = cities.length;
 
 if (cityNameIdx >= 0 && cityNameIdx >= 5) {
@@ -134,6 +186,22 @@ console.log(cities);
 
 //stores to localStorage
 storedCities();
+
+//fetching the weather API
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${ApiKey}`)
+    .then(response => response.json())
+    .then (data => {
+console.log(data);
+console.log("fetch");
+renderCityNames();
+
+//Querying web data to grab time in UTC and then converting it to mm/dd/yyyy format
+var dateMain = data.dt;
+var dateMainCity = moment(dateMain * 1000).format("L");
+
+//querying the text that is in the search field
+document.querySelector(".h1Txt").innerHTML = cityName + " " + dateMainCity;
+
 
 
 // document.querySelector(".buttonA").innerHTML = cityName;
