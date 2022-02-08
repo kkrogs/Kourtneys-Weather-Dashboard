@@ -133,7 +133,7 @@ document.querySelector(".temp").innerHTML="Temperature: " + Math.round(((tempera
 
 //creating wind speed
 var windSpd = data.wind.speed;
-document.querySelector(".wind").innerHTML="Wind: " + windSpd +" per hour";
+document.querySelector(".wind").innerHTML="Wind: " + windSpd +" miles per hour";
 
 //creating humidity index
 var humidityIndx = data.main.humidity;
