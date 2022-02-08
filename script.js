@@ -5,50 +5,13 @@ var h1Text = document.querySelector(".h1Txt");
 var cities = [5];
 var cityNameIdx = 0;
 
-//reads the cookie to reload the cityName array
-
-// var formSubmitHandler = function (event) {
-// event.preventdefault();
-
-// console.log("formSubmitHandler");
-// // var cityName = h1Text.value.trim();
-
-// // if(cityName) {
-// // getCityApi(cityName);
-
-// // temp.textContent = '';
-
-
-// // }
-
-// };
-
-
-
-//Displays today's date
-// var today = moment();
-// $(".h1Txt").text(today.format("L"));
 
 //Making the names appear in the HTML
 function renderCityNames() {
-    // Clear todoList element and update todoCountSpan
-    // cityList.innerHTML = "";
-  
-    // Render a new li for each todo
-    // for (var i = 0; i < cities.length; i++) {
-    //   var city = cities[i];
-  
-      // // var li = document.createElement("li");
-      // // li.textContent = todo;
-      // // li.setAttribute("data-index", i);
-  
-      // var button = document.createElement("button");
-      // button.textContent = "Complete ✔️";
-  
-      // li.appendChild(button);
-      // todoList.appendChild(li);
+   
+     let citLi = document.querySelector('#cityList');
 
-      let citLi = document.querySelector('#cityList');
+     //displays 0 in cities array to the first button
       if(cities[0].length > 0) {
         const btnA = document.querySelector(".buttonA");
 
@@ -56,6 +19,7 @@ function renderCityNames() {
 
       }
 
+      //displays 1 in cities array to the first button
       if(cities[1].length > 0) {
         const btnB = document.querySelector(".buttonB");
 
@@ -63,81 +27,33 @@ function renderCityNames() {
 
       }
 
+     //displays 2 in cities array to the first button
+      if(cities[2].length > 0) {
+        const btnC = document.querySelector(".buttonC");
 
-   
+        btnC.innerText = cities[2];
 
+      }
 
-      //  var btnA = document.createElement('button');
-      //  btnA.setAttribute('class', 'buttonA btn btn-primary btn-lg btn-block');
-      //  btnA.textContent = cities[0];
-      //  citLi.appendChild(btnA);
+      //displays 3 in cities array to the first button
+      if(cities[3].length > 0) {
+        const btnD = document.querySelector(".buttonD");
 
-      //  var btnB = document.createElement('button');
-      //  btnB.setAttribute('class', 'buttonA btn btn-primary btn-lg btn-block');
-      //  btnB.textContent = cities[1];
-      //  citLi.appendChild(btnB);
+        btnD.innerText = cities[3];
 
-      //  var btnC = document.createElement('button');
-      //  btnC.setAttribute('class', 'buttonA btn btn-primary btn-lg btn-block');
-      //  btnC.textContent = cities[2];
-      //  citLi.appendChild(btnC);
+      }
 
+      //displays 4 in cities array to the first button
+      if(cities[4].length > 0) {
+        const btnE = document.querySelector(".buttonE");
 
+        btnE.innerText = cities[4];
 
-        
-        // let btnA = document.createElement('<button type="button" class="buttonA btn btn-primary btn-lg btn-block">' + cities[0] + '</button>');
-       
-        // citLi(document.body.appendChild(btnA));
-        
-        // let btnB = document.createElement("<button type=""button"" class=""buttonB btn btn-primary btn-lg btn-block"">" + cities[1] + "</button>");
-        
-        // citLi(document.body.appendChild(btnB));
-
-        // let btnC = document.createElement("<button type=""button"" class=""buttonC btn btn-primary btn-lg btn-block"">" + cities[2] + "</button>");
-      
-        // citLi(document.body.appendChild(btnC));
-
-        // let btnD = document.createElement("<button type=""button"" class=""buttonD btn btn-primary btn-lg btn-block"">" + cities[3] + "</button>"));
-        // // btnD.innerHTML = cities[3];
-        // citLi(document.body.appendChild(btnD));
-
-        // let btnE = document.createElement("<button type=""button"" class=""buttonE btn btn-primary btn-lg btn-block"">" + cities[4] + "</button>");
-        // // btnE.innerHTML = cities[4];
-        // citLi(document.body.appendChild(btnE));
-
-
-
-
-
-
-
-
-      // } (cities.length > 0) {
-
-        
-
-
-
-      // document.querySelector(".buttonA").innerHTML = cities[0];
-      // document.querySelector(".buttonB").innerHTML = cities[1];
-      // document.querySelector(".buttonC").innerHTML = cities[2];
-      // document.querySelector(".buttonD").innerHTML = cities[3];
-      // document.querySelector(".buttonE").innerHTML = cities[4];
-      
-      
+      }
+     
 
     };
     
-
-  
-  // cities[cityNameIdx++] = cityName;  
-
-  // if (cityNameIdx > 4) {
-  //   cityNameIdx = 0;
-    
-  // }
-  
-  // storedCities();
 
 //retrieving the array from localStorage
   function init() {
@@ -161,17 +77,17 @@ function renderCityNames() {
   }
 
 
-
+//What happens after search click
 searchBtn.addEventListener("click",function() {
   //We want to fetch the city name and tie it to the weather.
 
 var cityName = document.getElementById("inputId").value;
 var ApiKey = "3cb947b3b8681f172b7e94554dd32b3a";
 console.log("addEventListener");
-// var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+",state,country&limit=5&appid="+ApiKey;
 
+//total city index
 cityNameIdx = cities.length;
-
+//removing the last data set to make room for a new one when the array is over 5
 if (cityNameIdx >= 0 && cityNameIdx >= 5) {
   cities.splice(0, 5);
   cityNameIdx = 0;
@@ -202,35 +118,6 @@ var dateMainCity = moment(dateMain * 1000).format("L");
 //querying the text that is in the search field
 document.querySelector(".h1Txt").innerHTML = cityName + " " + dateMainCity;
 
-
-
-// document.querySelector(".buttonA").innerHTML = cityName;
-
-//putting cityName into local storage
-
- 
-
-// localStorage.setItem("cityName", JSON.stringify(cities));
-
-
-
-
-// renderCityNames();
-
-// localStorage.setItem('cityName', JSON.stringify(cityName));
-// //retrieve the item from localStorage
-// var retrievedCity = localStorage.getItem('cityName');
-
-// //at this point just console logging it and will later try to add it to buttonA
-// console.log('retrievedCity:', JSON.parse(retrievedCity));
-
-//adding retrievedCity to the buttonA
-// document.querySelector(".buttonA").innerHTML = retrievedCity.trim();
-//not sure how to get rid of quotes from the button here******
-
-
-
-
 //get the data object and display it on the screen
 var temperature =  data.main.temp;
 document.querySelector(".temp").innerHTML="Temperature: " + Math.round(((temperature-273.15)*1.8)+32) + " Degrees Fahrenheit";
@@ -245,36 +132,24 @@ document.querySelector(".humidity").innerHTML="Humidity: " + humidityIndx + " %"
 
 
 
-
-//We need to get the lat and long from the return of data. With lat and long, we need to make another API column
 //Create variables for lat and long
-
 var Lat = data.coord.lat;
 var Long = data.coord.lon;
 
 
-
+//Fetching oneCall API to display 5 day weather forecast and current UV index
 fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Lat}&lon=${Long}&exclude=current,minutely,hourly,alerts&appid=${ApiKey}`)
 .then(response => response.json())
     .then (data => {
 console.log(data);
 
+//displays API Data for current UV Index
 var uvIndx = data.daily[0].uvi;
 document.querySelector(".uvIndx").innerHTML="Current UV Index: " + uvIndx;
 
+//displays API Data for first forecast panel
 var date1 = data.daily[1].dt;
 document.querySelector(".DateOne").innerHTML= moment(date1 * 1000).format("L");
-
-// var iconcode = weather[0].icon;
-// var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-// $('#wicon').attr('src', iconurl);
-
-// var iconOnee = data.daily[0].weather[0].icon;
-// document.querySelector(".icon").innerHTML= iconOnee;
-
-
-
-
 
 var tempA = data.daily[1].temp.day;
 document.querySelector(".tempA").innerHTML= "Temp: " + Math.round(((tempA-273.15)*1.8)+32) + " F";
@@ -352,5 +227,5 @@ document.querySelector(".humidE").innerHTML= "Humidity: " + humidE + " %";
 
 
 });
-
+//calls init function to retrieve search array from localStorage
 init();
