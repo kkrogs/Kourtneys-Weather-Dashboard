@@ -2,8 +2,10 @@ var state = "";
 
 var searchBtn = document.querySelector(".Search");
 var h1Text = document.querySelector(".h1Txt");
-var cities = [5];
+var cities = [];
 var cityNameIdx = 0;
+
+
 
 
 //Making the names appear in the HTML
@@ -12,7 +14,7 @@ function renderCityNames() {
      let citLi = document.querySelector('#cityList');
 
      //displays 0 in cities array to the first button
-      if(cities[0].length > 0) {
+      if(cities[0]) {
         const btnA = document.querySelector(".buttonA");
 
         btnA.innerText = cities[0];
@@ -20,7 +22,7 @@ function renderCityNames() {
       }
 
       //displays 1 in cities array to the first button
-      if(cities[1].length > 0) {
+      if(cities[1]) {
         const btnB = document.querySelector(".buttonB");
 
         btnB.innerText = cities[1];
@@ -28,7 +30,7 @@ function renderCityNames() {
       }
 
      //displays 2 in cities array to the first button
-      if(cities[2].length > 0) {
+      if(cities[2]) {
         const btnC = document.querySelector(".buttonC");
 
         btnC.innerText = cities[2];
@@ -36,7 +38,7 @@ function renderCityNames() {
       }
 
       //displays 3 in cities array to the first button
-      if(cities[3].length > 0) {
+      if(cities[3]) {
         const btnD = document.querySelector(".buttonD");
 
         btnD.innerText = cities[3];
@@ -44,7 +46,7 @@ function renderCityNames() {
       }
 
       //displays 4 in cities array to the first button
-      if(cities[4].length > 0) {
+      if(cities[4]) {
         const btnE = document.querySelector(".buttonE");
 
         btnE.innerText = cities[4];
@@ -85,7 +87,7 @@ var cityName = document.getElementById("inputId").value;
 var ApiKey = "3cb947b3b8681f172b7e94554dd32b3a";
 console.log("addEventListener");
 
-//total city index
+// total city index
 cityNameIdx = cities.length;
 //removing the last data set to make room for a new one when the array is over 5
 if (cityNameIdx >= 0 && cityNameIdx >= 5) {
@@ -97,7 +99,7 @@ if (cityNameIdx >= 0 && cityNameIdx >= 5) {
 
 //Read cityName to submit it with the form
 cities[cityNameIdx++] = cityName;  
-
+console.log(cityName);
 console.log(cities);
 
 //stores to localStorage
@@ -143,9 +145,35 @@ fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Lat}&lon=${Long}&ex
     .then (data => {
 console.log(data);
 
+//display weather icon
+var icnCdA = data.daily[0].weather[0].icon;
+var icnURLA = "http://openweathermap.org/img/w/" + icnCdA + ".png";
+document.querySelector("#wiconA").setAttribute('src', icnURLA);
+
+//display weather icon
+var icnCdB = data.daily[1].weather[0].icon;
+var icnURLB = "http://openweathermap.org/img/w/" + icnCdB + ".png";
+document.querySelector("#wiconB").setAttribute('src', icnURLB);
+
+//display weather icon
+var icnCdC = data.daily[2].weather[0].icon;
+var icnURLC = "http://openweathermap.org/img/w/" + icnCdC + ".png";
+document.querySelector("#wiconC").setAttribute('src', icnURLC);
+
+//display weather icon
+var icnCdD = data.daily[3].weather[0].icon;
+var icnURLD = "http://openweathermap.org/img/w/" + icnCdD + ".png";
+document.querySelector("#wiconD").setAttribute('src', icnURLD);
+
+//display weather icon
+var icnCdE = data.daily[4].weather[0].icon;
+var icnURLE = "http://openweathermap.org/img/w/" + icnCdE + ".png";
+document.querySelector("#wiconE").setAttribute('src', icnURLE);
+
 //displays API Data for current UV Index
 var uvIndx = data.daily[0].uvi;
 document.querySelector(".uvIndx").innerHTML="Current UV Index: " + uvIndx;
+
 
 //displays API Data for first forecast panel
 var date1 = data.daily[1].dt;
